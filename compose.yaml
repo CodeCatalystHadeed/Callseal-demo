@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: callseal
+      POSTGRES_USER: callseal
+      POSTGRES_PASSWORD: callseal_dev
+    volumes:
+      - callseal_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U callseal"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://callseal:callseal_dev@db:5432/callseal
+      CALLSEAL_SECRET: local-compose-secret-change-before-deployment
+      DEMO_MODE: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  callseal_data:
+

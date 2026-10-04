@@ -1,0 +1,10 @@
+.env
+.venv
+.pytest_cache
+__pycache__
+*.pyc
+callseal.db
+tmp
+.git
+.agent-logs
+app/static/audio/callseal_demo.wav

@@ -1,0 +1,25 @@
+.demo-audio {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 42%);
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 22px;
+  border-left: 4px solid var(--green);
+}
+
+.demo-audio strong {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: -.02em;
+}
+
+.demo-audio p { margin: 5px 0 0; font-size: 12px; }
+.demo-audio audio { width: 100%; }
+.segment[data-start] { cursor: pointer; transition: background-color .18s, border-color .18s; }
+.segment.playing { background: #e3f2ea; border-left-color: var(--green); }
+
+@media (max-width: 700px) {
+  .demo-audio { grid-template-columns: 1fr; gap: 14px; }
+}

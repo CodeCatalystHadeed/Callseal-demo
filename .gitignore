@@ -1,0 +1,13 @@
+.env
+.env.example
+.venv/
+.agent-logs/
+.codex/
+__pycache__/
+.pytest_cache/
+*.pyc
+callseal.db
+scripts/.demo-audio-work/
+tmp/callseal_demo/
+.env.example
+private-docs/
